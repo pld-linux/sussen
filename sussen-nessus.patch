@@ -1,0 +1,13 @@
+--- sussen-0.3/src/includes.h.orig	Fri Jun 13 16:08:48 2003
++++ sussen-0.3/src/includes.h	Tue Jul  1 17:13:14 2003
+@@ -117,10 +117,8 @@
+ #endif
+ 
+ #include <pcap.h>
+-#include <nessus/ntcompat.h>
+ #include <nessus/harglists.h>
+ #include <nessus/libnessus.h>
+-#include <nessus/nessus-devel.h>
+ 
+ #ifdef HAVE_SHL_LOAD	/* I love HPUX (jh) */
+ # undef dlopen
