@@ -8,6 +8,8 @@ Group:		X11/Applications/Networking
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 # Source0-md5:	a01ad46aa2b301119efa158378e60034
 URL:		http://sussen.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	libgnomeui-devel >= 2.3.3
 BuildRequires:	libtool
