@@ -1,11 +1,3 @@
-#
-# todo:
-#
-# - anjuta is used, so ac/am stuff is screwed up...
-# - nessus-config should be used in Makefile.am (i.e. to not link with
-#   libpcap-nessus.so)!
-# - nessus paths and optflags in src/Makefile.am
-#
 Summary:	GNOME client for Nessus Security Scanner
 Summary(pl):	Klient skanera bezpieczeñstwa Nessusa dla GNOME
 Name:		sussen
@@ -16,6 +8,7 @@ Group:		X11/Applications/Networking
 Source0:	http://dl.sourceforge.net/sussen/%{name}-%{version}.tar.gz
 # Source0-md5:	f7a6d8ecbce00a3a67a1bfe6ac3ebe1c
 Patch0:		%{name}-nessus.patch
+Patch1:		%{name}-make.patch
 URL:		http://sussen.sourceforge.net/
 BuildRequires:	gettext-devel
 BuildRequires:	libgnomeui-devel >= 2.3.3
@@ -33,7 +26,8 @@ GNOME.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{__gettextize}
@@ -51,7 +45,8 @@ GNOME.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	gnomemenudir=%{_applnkdir}/Network
 
 %find_lang %{name} --with-gnome
 
@@ -64,3 +59,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/sussen
 %{_datadir}/sussen
 %{_pixmapsdir}/sussen
+%{_applnkdir}/Network/*.desktop
