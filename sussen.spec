@@ -1,4 +1,3 @@
-
 #
 # todo:
 #
@@ -7,14 +6,16 @@
 #   libpcap-nessus.so)!
 # - src/includes.h includes unnecessary nessus/{ntcompat.h,nessus-devel.h}
 #
-
 Summary:	GNOME client for Nessus Security Scanner
+Summary(pl):	Klient skanera bezpieczeñstwa Nessusa dla GNOME
 Name:		sussen
 Version:	0.3
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/sussen/%{name}-%{version}.tar.gz
+# Source0-md5:	f7a6d8ecbce00a3a67a1bfe6ac3ebe1c
+URL:		http://sussen.sourceforge.net/
 BuildRequires:	libgnomeui-devel >= 2.3.3
 BuildRequires:	nessus-libs-devel >= 2.0.6a
 BuildRequires:	openssl-devel >= 0.9.7b
@@ -22,6 +23,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Sussen is a GNOME client for the Nessus Security Scanner.
+
+%description -l pl
+Sussen jest klientem skanera bezpieczeñstwa Nessusa dla ¶rodowiska
+GNOME.
 
 %prep
 %setup -q
