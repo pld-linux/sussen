@@ -2,7 +2,7 @@ Summary:	GNOME client for Nessus Security Scanner
 Summary(pl):	Klient skanera bezpieczeñstwa Nessusa dla GNOME
 Name:		sussen
 Version:	0.6
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
@@ -16,7 +16,7 @@ BuildRequires:	libgnomedb-devel >= 1.0.0
 BuildRequires:	libgnomeui-devel >= 2.3.3
 BuildRequires:	libtool
 BuildRequires:	nessus-libs-devel >= 2.0.6a
-BuildRequires:	openssl-devel >= 0.9.7b
+BuildRequires:	openssl-devel >= 0.9.7c
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
