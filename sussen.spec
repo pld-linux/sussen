@@ -1,3 +1,13 @@
+
+#
+# todo:
+#
+# - anjuta is used, so ac/am stuff is screwed up...
+# - nessus-config should be used in Makefile.am (i.e. to not link with
+#   libpcap-nessus.so)!
+# - src/includes.h includes unnecessary nessus/{ntcompat.h,nessus-devel.h}
+#
+
 Summary:	GNOME client for Nessus Security Scanner
 Name:		sussen
 Version:	0.3
