@@ -16,7 +16,7 @@ BuildRequires:	libgnomedb-devel >= 1.0.0
 BuildRequires:	libgnomeui-devel >= 2.3.3
 BuildRequires:	libtool
 BuildRequires:	nessus-libs-devel >= 2.0.6a
-BuildRequires:	openssl-devel >= 0.9.7cc
+BuildRequires:	openssl-devel >= 0.9.7c
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
