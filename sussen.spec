@@ -1,41 +1,35 @@
-Summary:	GNOME2 client for Nessus Security Scanner
+Summary:	GNOME client for Nessus Security Scanner
 Name:		sussen
 Version:	0.3
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	%{name}-%{version}.tar.gz
+BuildRequires:	libgnomeui-devel >= 2.3.3
+BuildRequires:	nessus-libs-devel >= 2.0.6a
+BuildRequires:	openssl-devel >= 0.9.7b
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Requires:	libgnomeui >= 2.0.0
-Requires:	libglade2 >= 2.0.0
-Requires:	glib2 >= 2.0.0
-Requires:	GConf2 >= 2.0.0
-Requires:	nessus-libraries
-Requires:	openssl
-BuildRequires:	libgnomeui-devel >= 2.0.0
-BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	glib2-devel >= 2.0.0
-BuildRequires:	GConf2-devel >= 2.0.0
-BuildRequires:	nessus-libraries
-BuildRequires:	openssl
 
 %description
-Sussen is a GNOME 2.2 client for the Nessus Security Scanner
+Sussen is a GNOME client for the Nessus Security Scanner.
 
-%preq
+%prep
 %setup -q
+
 %build
+%{__autoheader}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure
-%make
+%{__make}
+
 %install
 rm -rf $RPM_BUILD_ROOT
-[ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf $RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-%makeinstall
 %clean
-
-[ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf $RPM_BUILD_ROOT
-
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
