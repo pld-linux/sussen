@@ -1,14 +1,12 @@
 Summary:	GNOME client for Nessus Security Scanner
 Summary(pl):	Klient skanera bezpieczeñstwa Nessusa dla GNOME
 Name:		sussen
-Version:	0.3
-Release:	1.1
+Version:	0.5.2
+Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://dl.sourceforge.net/sussen/%{name}-%{version}.tar.gz
-# Source0-md5:	f7a6d8ecbce00a3a67a1bfe6ac3ebe1c
-Patch0:		%{name}-nessus.patch
-Patch1:		%{name}-make.patch
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	a01ad46aa2b301119efa158378e60034
 URL:		http://sussen.sourceforge.net/
 BuildRequires:	gettext-devel
 BuildRequires:	libgnomeui-devel >= 2.3.3
@@ -26,8 +24,6 @@ GNOME.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
 %{__gettextize}
@@ -39,7 +35,7 @@ GNOME.
 %configure
 
 %{__make} \
-	sussen_LDADD="\\\$(GNOME_LIBS) `nessus-config --libs`"
+	sussen_LDADD="\\\$(SUSSENMODS_LIBS) `nessus-config --libs`"
 
 %install
 rm -rf $RPM_BUILD_ROOT
