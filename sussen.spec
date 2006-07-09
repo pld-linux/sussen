@@ -1,36 +1,39 @@
 Summary:	GNOME client for Nessus Security Scanner
 Summary(pl):	Klient skanera bezpieczeñstwa Nessusa dla GNOME
 Name:		sussen
-Version:	0.6
-Release:	2
+Version:	0.24
+Release:	0.1
+Epoch:		1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-# Source0-md5:	6fe7797927cf2b3f34e2bab723b6a5a5
-URL:		http://sussen.sourceforge.net/
+Source0:	http://dev.mmgsecurity.com/downloads/sussen/%{name}-%{version}.tar.gz
+# Source0-md5:	f7ef78c80d535192226767650d2324ca
+URL:		http://dev.mmgsecurity.com/projects/sussen/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	dotnet-gtk-sharp2-devel >= 2.4
+BuildRequires:	dotnet-gtk-sharp2-gnome-devel >= 2.4
 BuildRequires:	gnet-devel
 BuildRequires:	libgnomedb-devel >= 1.0.0
 BuildRequires:	libgnomeui-devel >= 2.3.3
 BuildRequires:	libtool
+BuildRequires:	mono-csharp >= 1.1
 BuildRequires:	nessus-libs-devel >= 2.0.6a
 BuildRequires:	openssl-devel >= 0.9.7d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Sussen is a GNOME client for the Nessus Security Scanner.
+Sussen is a tool that checks for vulnerabilities and configuration
+issues on computer systems.
 
 %description -l pl
-Sussen jest klientem skanera bezpieczeñstwa Nessusa dla ¶rodowiska
-GNOME.
+Sussen jest narzêdziem do wyszukiwania dziur w zabezpieczeniach oraz
+problemów z konfigracj± w ró¿nych systemach komputerowych.
 
 %prep
 %setup -q
 
 %build
-%{__gettextize}
 %{__libtoolize}
 %{__autoheader}
 %{__aclocal}
@@ -46,17 +49,26 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	gnomemenudir=%{_applnkdir}/Network
-
-%find_lang %{name} --with-gnome
+	gnomemenudir=%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README TODO
-%attr(755,root,root) %{_bindir}/sussen
-%{_datadir}/sussen
-%{_pixmapsdir}/sussen
-%{_applnkdir}/Network/*.desktop
+%attr(755,root,root) %{_bindir}/*
+%{_sysconfdir}/%{name}
+%{_mandir}/man1/*
+%attr(755,root,root) %{_libdir}/*.so
+%{_pixmapsdir}/sussen-icon.png
+%{_desktopdir}/*.desktop
+%{_pkgconfigdir}/*.pc
+%{_docdir}/%{name}
+%{_libdir}/mono/gac/*
+%{_libdir}/monodoc/sources/*
+%{_libdir}/dbus-1.0/services/*
+%{_libdir}/%{name}/
+%{_libdir}/*.la
+%{_datadir}/application-registry/*
+%{_libdir}/bonobo/servers/*.server
