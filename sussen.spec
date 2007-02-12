@@ -1,5 +1,5 @@
 Summary:	GNOME client for Nessus Security Scanner
-Summary(pl):	Klient skanera bezpieczeñstwa Nessusa dla GNOME
+Summary(pl.UTF-8):   Klient skanera bezpieczeÅ„stwa Nessusa dla GNOME
 Name:		sussen
 Version:	0.24
 Release:	0.1
@@ -26,9 +26,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Sussen is a tool that checks for vulnerabilities and configuration
 issues on computer systems.
 
-%description -l pl
-Sussen jest narzêdziem do wyszukiwania dziur w zabezpieczeniach oraz
-problemów z konfigracj± w ró¿nych systemach komputerowych.
+%description -l pl.UTF-8
+Sussen jest narzÄ™dziem do wyszukiwania dziur w zabezpieczeniach oraz
+problemÃ³w z konfigracjÄ… w rÃ³Å¼nych systemach komputerowych.
 
 %prep
 %setup -q
