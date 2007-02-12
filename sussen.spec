@@ -1,5 +1,5 @@
 Summary:	GNOME client for Nessus Security Scanner
-Summary(pl.UTF-8):   Klient skanera bezpieczeństwa Nessusa dla GNOME
+Summary(pl.UTF-8):	Klient skanera bezpieczeństwa Nessusa dla GNOME
 Name:		sussen
 Version:	0.24
 Release:	0.1
